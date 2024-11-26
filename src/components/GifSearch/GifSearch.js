@@ -4,23 +4,24 @@ import React, {Component} from 'react';
 
 class GifSearch extends Component {
     state = {
-        valueInput: " ",
+        valueInput: "",
     }
 
-    handleInput = (event) => {
-        this.setState({valueInput:event.currentTarget.value})
-    }
+    
 
-    handleSubmit = (event) => {
+    handleSubmit = (event) => {  
         event.preventDefault()
-        this.props.getValue(this.state.valueInput)
+        let valueInput = event.target.elements.search.value
+        // this.setState({valueInput: valueInput})
+        this.props.getValue(valueInput)
     }
-
+    
     render() {
+        // console.log(this.state.valueInput);
         return(
             <>
                 <form onSubmit={this.handleSubmit}>
-                    <input type='text' value={this.state.valueInput} name='search' onChange={this.handleInput}/>
+                    <input type='text' name='search'/>
                     <button type='submit'>Пошук</button>
                 </form>
             </>

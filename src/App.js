@@ -11,11 +11,14 @@ class App extends Component{
   }
 
   getSearching = (valueInput) => {
+    console.log(valueInput);
+    
     this.setState({inputValue: valueInput})
-    console.log(this.state.inputValue);
   }
-
+  
   render() {
+    
+    // console.log(this.state.inputValue);
     return (
       <>
         <GifSearch getValue={this.getSearching}/>
